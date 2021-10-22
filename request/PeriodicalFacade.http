@@ -1,0 +1,4 @@
+GET {{host}}/periodical/新浪
+Accept: application/json
+
+###
