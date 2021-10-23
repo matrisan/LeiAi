@@ -15,7 +15,7 @@ import java.util.List;
  * @author shishaodong
  * @version 0.0.1
  */
-@Service
+@Service("PeriodicalService")
 public class PeriodicalService {
 
     @Resource

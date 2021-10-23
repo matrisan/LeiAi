@@ -15,24 +15,20 @@ import org.springframework.context.annotation.Role;
  * @author shishaodong
  * @version 0.0.1
  */
-//@Configuration
+@Configuration
 public class StatisticConfig {
 
 
     @Bean
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     StatisticMethodSourceAdvisor statisticMethodSourceAdvisor() {
-        return null;
+        return new StatisticMethodSourceAdvisor();
     }
 
     @Bean
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
-    StatisticInterceptor statisticInterceptor(){
-        return null;
+    StatisticInterceptor statisticInterceptor() {
+        return new StatisticInterceptor();
     }
-
-
-
-
 
 }

@@ -8,6 +8,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 统计功能注解
+ *
  * <p>
  * create in 2021/10/21 7:27 下午
  *

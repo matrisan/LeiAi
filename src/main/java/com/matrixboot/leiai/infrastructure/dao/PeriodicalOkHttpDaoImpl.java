@@ -1,4 +1,4 @@
-package com.matrixboot.leiai.infrastructure.repository;
+package com.matrixboot.leiai.infrastructure.dao;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,7 +26,7 @@ import java.util.Objects;
  * @version 0.0.1
  */
 @Repository
-public class PeriodicalOkHttpRepositoryImpl implements IPeriodicalRepository {
+public class PeriodicalOkHttpDaoImpl implements IPeriodicalRepository {
 
     private static final OkHttpClient CLIENT = new OkHttpClient().newBuilder().build();
 

@@ -1,4 +1,4 @@
-package com.matrixboot.leiai.infrastructure.repository;
+package com.matrixboot.leiai.infrastructure.dao;
 
 import com.matrixboot.leiai.domain.entity.PeriodicalEntity;
 import com.matrixboot.leiai.domain.repository.IPeriodicalRepository;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Primary
 @Repository
-public class PeriodicalMockRepositoryImpl implements IPeriodicalRepository {
+public class PeriodicalMockDaoImpl implements IPeriodicalRepository {
 
     @Override
     public List<PeriodicalEntity> findAllByName(String name) {
