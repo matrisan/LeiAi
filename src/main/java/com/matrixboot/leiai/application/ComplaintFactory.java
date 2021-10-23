@@ -16,7 +16,11 @@ import lombok.NoArgsConstructor;
 public final class ComplaintFactory {
 
     public static BlockEntity from(ComplaintCommand command) {
-        return new BlockEntity();
+        return BlockEntity.builder()
+                .type(command.getType())
+                .value(command.getValue())
+                .description(command.getValue())
+                .build();
     }
 
 }

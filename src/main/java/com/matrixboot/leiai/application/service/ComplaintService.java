@@ -6,6 +6,9 @@ import com.matrixboot.leiai.domain.entity.BlockEntity;
 import com.matrixboot.leiai.domain.repository.IBlockRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.Valid;
 
 /**
  * 投诉板块
@@ -15,8 +18,9 @@ import org.springframework.stereotype.Service;
  * @author shishaodong
  * @version 0.0.1
  */
-@AllArgsConstructor
 @Service
+@Validated
+@AllArgsConstructor
 public class ComplaintService {
 
     private final IBlockRepository blockRepository;
@@ -26,7 +30,7 @@ public class ComplaintService {
      *
      * @param command 举报模块
      */
-    public void complaint(ComplaintCommand command) {
+    public void complaint(@Valid ComplaintCommand command) {
         BlockEntity from = ComplaintFactory.from(command);
         blockRepository.save(from);
     }

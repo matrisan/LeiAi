@@ -1,7 +1,7 @@
 package com.matrixboot.leiai.interfaces.facade;
 
 import com.matrixboot.leiai.application.service.PortalService;
-import com.matrixboot.leiai.interfaces.dto.ResultVO;
+import com.matrixboot.leiai.infrastructure.common.ResultVO;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @AllArgsConstructor
 @RestController
-@RequestMapping("portal")
+@RequestMapping("/portal")
 public class PortalFacade {
 
     private final PortalService portalService;
@@ -27,10 +27,9 @@ public class PortalFacade {
      *
      * @return Long
      */
-    @GetMapping("user/count")
-    ResultVO<Long> userCount() {
+    @GetMapping("/user/count")
+    public ResultVO<Long> userCount() {
         return ResultVO.success(portalService.countUsers());
     }
-
 
 }

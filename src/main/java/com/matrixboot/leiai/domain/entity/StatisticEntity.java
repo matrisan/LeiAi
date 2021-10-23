@@ -1,8 +1,11 @@
 package com.matrixboot.leiai.domain.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -26,8 +29,10 @@ import java.io.Serializable;
 @Slf4j
 @Getter
 @Setter
-@MappedSuperclass
+@Builder
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @DynamicInsert
 @DynamicUpdate
 @Entity

@@ -1,6 +1,7 @@
 package com.matrixboot.leiai.interfaces.facade;
 
-import com.matrixboot.leiai.interfaces.dto.ResultVO;
+import com.matrixboot.leiai.infrastructure.common.ErrorCodeEnum;
+import com.matrixboot.leiai.infrastructure.common.ResultVO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +20,7 @@ import javax.annotation.Resource;
  * @author shishaodong
  * @version 0.0.1
  */
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PortalFacadeTest {
 
     @Resource
@@ -34,6 +35,7 @@ class PortalFacadeTest {
         ResponseEntity<ResultVO<Long>> response = restTemplate.exchange(requestEntity, myBean);
         ResultVO<Long> body = response.getBody();
         Assertions.assertNotNull(body);
+        Assertions.assertEquals(ErrorCodeEnum.ALL_OK.getCode(), body.getCode());
         Assertions.assertEquals(0L, body.getData());
     }
 }

@@ -1,9 +1,15 @@
 package com.matrixboot.leiai.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,8 +29,12 @@ import javax.persistence.Table;
 @Slf4j
 @Getter
 @Setter
-@MappedSuperclass
+@Builder
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name = "periodical_entity")
 public class PeriodicalEntity {
@@ -33,6 +43,26 @@ public class PeriodicalEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, columnDefinition = "BIGINT COMMENT 'id'")
     private Long id;
+
+    private String orgType;
+
+    private String hostUnit;
+
+    private String address;
+
+    private String station;
+
+    private String recId;
+
+    private String orgName;
+
+    private String chargeUnit;
+
+    private String languate;
+
+    private String orgCn;
+
+    private String linkNum;
 
 
 }
