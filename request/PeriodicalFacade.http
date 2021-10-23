@@ -1,4 +1,4 @@
-GET {{host}}/periodical/新浪
+GET http://{{host}}/periodical/新浪
 Accept: application/json
 
 ###

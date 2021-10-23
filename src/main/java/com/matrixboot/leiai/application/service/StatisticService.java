@@ -1,5 +1,6 @@
 package com.matrixboot.leiai.application.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
  * @author shishaodong
  * @version 0.0.1
  */
+@AllArgsConstructor
 @Service
 public class StatisticService {
 

@@ -1,12 +1,14 @@
 package com.matrixboot.leiai.interfaces.facade;
 
+import com.matrixboot.leiai.application.PeriodicalVO;
 import com.matrixboot.leiai.application.service.PeriodicalService;
 import com.matrixboot.leiai.domain.entity.PeriodicalEntity;
+import com.matrixboot.leiai.interfaces.dto.ResultVO;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,15 +18,16 @@ import java.util.List;
  * @author shishaodong
  * @version 0.0.1
  */
+@AllArgsConstructor
 @RestController
 public class PeriodicalFacade {
 
-    @Resource
-    private PeriodicalService service;
+    private final PeriodicalService service;
 
     @GetMapping("periodical/{name}")
-    List<PeriodicalEntity> findAll(@PathVariable String name) {
-        return service.findAllByName(name);
+    ResultVO<List<PeriodicalEntity>> findAll(@PathVariable String name) {
+        List<PeriodicalVO> list = service.findAllByName(name);
+        return ResultVO.success();
     }
 
 }

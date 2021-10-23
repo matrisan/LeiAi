@@ -1,8 +1,17 @@
 package com.matrixboot.leiai.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
 /**
  * <p>
@@ -11,28 +20,19 @@ import lombok.NoArgsConstructor;
  * @author shishaodong
  * @version 0.0.1
  */
-@Data
+@Slf4j
+@Getter
+@Setter
+@MappedSuperclass
 @NoArgsConstructor
+@Entity
+@Table(name = "periodical_entity")
 public class PeriodicalEntity {
 
-    @JsonProperty("orgType")
-    private String orgType;
-    @JsonProperty("hostunit")
-    private String hostunit;
-    @JsonProperty("address")
-    private Object address;
-    @JsonProperty("station")
-    private String station;
-    @JsonProperty("recid")
-    private String recid;
-    @JsonProperty("orgname")
-    private String orgname;
-    @JsonProperty("chargeunit")
-    private String chargeunit;
-    @JsonProperty("languate")
-    private String languate;
-    @JsonProperty("orgcn")
-    private String orgcn;
-    @JsonProperty("linkNum")
-    private Object linkNum;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, columnDefinition = "BIGINT COMMENT 'id'")
+    private Long id;
+
+
 }

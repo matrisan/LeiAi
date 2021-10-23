@@ -1,0 +1,4 @@
+GET http://{{host}}/portal/user/count
+Accept: application/json
+
+###
