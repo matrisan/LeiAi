@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+
+import java.util.function.Function;
 
 /**
  * TODO
@@ -44,5 +47,9 @@ public class PeriodicalVO {
     private String orgCn;
 
     private String linkNum;
+
+    PeriodicalVO map(Function<?, PeriodicalVO> converter) {
+        return null;
+    }
 
 }

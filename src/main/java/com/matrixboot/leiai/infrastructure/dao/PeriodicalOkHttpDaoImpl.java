@@ -2,7 +2,9 @@ package com.matrixboot.leiai.infrastructure.dao;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.matrixboot.leiai.application.PeriodicalDTO;
 import com.matrixboot.leiai.domain.entity.PeriodicalEntity;
+import com.matrixboot.leiai.domain.repository.IPeriodicalRemoteRepository;
 import com.matrixboot.leiai.domain.repository.IPeriodicalRepository;
 import lombok.SneakyThrows;
 import okhttp3.MultipartBody;
@@ -26,13 +28,13 @@ import java.util.Objects;
  * @version 0.0.1
  */
 @Repository
-public class PeriodicalOkHttpDaoImpl implements IPeriodicalRepository {
+public class PeriodicalOkHttpDaoImpl implements IPeriodicalRemoteRepository {
 
     private static final OkHttpClient CLIENT = new OkHttpClient().newBuilder().build();
 
     @SneakyThrows
     @Override
-    public List<PeriodicalEntity> findAllByName(String name) {
+    public List<PeriodicalDTO> findAllByName(String name) {
         RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("action", "org")
                 .addFormDataPart("type", "2")
@@ -51,11 +53,11 @@ public class PeriodicalOkHttpDaoImpl implements IPeriodicalRepository {
     @Resource
     private ObjectMapper objectMapper;
 
-    private static final TypeReference<List<PeriodicalEntity>> TYPE_REFERENCE = new TypeReference<>() {
+    private static final TypeReference<List<PeriodicalDTO>> TYPE_REFERENCE = new TypeReference<>() {
     };
 
     @SneakyThrows
-    private List<PeriodicalEntity> convert(String data) {
+    private List<PeriodicalDTO> convert(String data) {
         return objectMapper.readValue(data, TYPE_REFERENCE);
     }
 

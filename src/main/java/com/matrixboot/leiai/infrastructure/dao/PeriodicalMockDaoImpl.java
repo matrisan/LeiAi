@@ -1,6 +1,8 @@
 package com.matrixboot.leiai.infrastructure.dao;
 
+import com.matrixboot.leiai.application.PeriodicalDTO;
 import com.matrixboot.leiai.domain.entity.PeriodicalEntity;
+import com.matrixboot.leiai.domain.repository.IPeriodicalRemoteRepository;
 import com.matrixboot.leiai.domain.repository.IPeriodicalRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -17,10 +19,10 @@ import java.util.List;
  */
 @Primary
 @Repository
-public class PeriodicalMockDaoImpl implements IPeriodicalRepository {
+public class PeriodicalMockDaoImpl implements IPeriodicalRemoteRepository {
 
     @Override
-    public List<PeriodicalEntity> findAllByName(String name) {
+    public List<PeriodicalDTO> findAllByName(String name) {
         return Collections.emptyList();
     }
 }

@@ -85,7 +85,7 @@ public class BlockEntity extends BaseEntity implements Serializable {
     /**
      * 有多少人点过赞
      */
-    @Column(columnDefinition = "BIGINT COMMENT '点赞数'")
+    @Column(columnDefinition = "BIGINT DEFAULT 0 COMMENT '点赞数'")
     private Long agreement;
 
 }

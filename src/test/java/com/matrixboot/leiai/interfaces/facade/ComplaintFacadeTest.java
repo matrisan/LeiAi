@@ -1,5 +1,6 @@
 package com.matrixboot.leiai.interfaces.facade;
 
+import com.matrixboot.leiai.domain.entity.BlockEntity;
 import com.matrixboot.leiai.infrastructure.common.ErrorCodeEnum;
 import com.matrixboot.leiai.infrastructure.common.ResultVO;
 import org.jetbrains.annotations.Contract;
@@ -31,7 +32,21 @@ class ComplaintFacadeTest {
     @Resource
     private TestRestTemplate restTemplate;
 
-    private final ParameterizedTypeReference<ResultVO<String>> myBean = new ParameterizedTypeReference<>() {
+    private final ParameterizedTypeReference<ResultVO<BlockEntity>> complaint = new ParameterizedTypeReference<>() {
+    };
+
+    @Test
+    @DisplayName("查询举报信息")
+    void lookupSuspicious() {
+        RequestEntity<Void> requestEntity = RequestEntity.get("/complaint/entity").build();
+        ResponseEntity<ResultVO<BlockEntity>> response = restTemplate.exchange(requestEntity, complaint);
+        Assertions.assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+        ResultVO<BlockEntity> body = response.getBody();
+        Assertions.assertNotNull(body);
+    }
+
+
+    private final ParameterizedTypeReference<ResultVO<String>> stringData = new ParameterizedTypeReference<>() {
     };
 
     @Test
@@ -41,7 +56,7 @@ class ComplaintFacadeTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .body(getFullBody());
-        ResponseEntity<ResultVO<String>> response = restTemplate.exchange(requestEntity, myBean);
+        ResponseEntity<ResultVO<String>> response = restTemplate.exchange(requestEntity, stringData);
         Assertions.assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
         ResultVO<String> body = response.getBody();
         Assertions.assertNotNull(body);
@@ -60,7 +75,7 @@ class ComplaintFacadeTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON)
                     .body(getNoTypeBody());
-            ResponseEntity<ResultVO<String>> response = restTemplate.exchange(requestEntity, myBean);
+            ResponseEntity<ResultVO<String>> response = restTemplate.exchange(requestEntity, stringData);
             Assertions.assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCodeValue());
             ResultVO<String> body = response.getBody();
             Assertions.assertNotNull(body);
@@ -74,22 +89,29 @@ class ComplaintFacadeTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON)
                     .body(getValueBody());
-            ResponseEntity<ResultVO<String>> response = restTemplate.exchange(requestEntity, myBean);
+            ResponseEntity<ResultVO<String>> response = restTemplate.exchange(requestEntity, stringData);
             Assertions.assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCodeValue());
             ResultVO<String> body = response.getBody();
             Assertions.assertNotNull(body);
             Assertions.assertEquals(ErrorCodeEnum.ARGUMENT_NULL.getCode(), body.getCode());
         }
-
     }
 
+    @Test
+    @DisplayName("查询举报信息")
+    void agreement() {
+        RequestEntity<Void> requestEntity = RequestEntity.put("/complaint/agreement/123").build();
+        ResponseEntity<ResultVO<String>> response = restTemplate.exchange(requestEntity, stringData);
+        Assertions.assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+        ResultVO<String> body = response.getBody();
+        Assertions.assertNotNull(body);
+    }
 
     @NotNull
     @Contract(pure = true)
     private String getFullBody() {
         return "{\"type\": \"QQ\",\"value\": \"123456\"}";
     }
-
 
     @NotNull
     @Contract(pure = true)

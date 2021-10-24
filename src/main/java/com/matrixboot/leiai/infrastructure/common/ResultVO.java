@@ -41,6 +41,10 @@ public class ResultVO<T> {
         return ResultVO.<T>builder().code(errorCodeEnum.getCode()).message(errorCodeEnum.getMessage()).build();
     }
 
+    public static <T> ResultVO<T> failure() {
+        return ResultVO.<T>builder().code(ErrorCodeEnum.INVALID_INPUT.getCode()).build();
+    }
+
     public static <T> ResultVO<T> failure(String message) {
         return ResultVO.<T>builder().code(ErrorCodeEnum.ALL_OK.getCode()).message(message).build();
     }

@@ -58,7 +58,7 @@ public class PeriodicalEntity {
 
     private String chargeUnit;
 
-    private String languate;
+    private String language;
 
     private String orgCn;
 

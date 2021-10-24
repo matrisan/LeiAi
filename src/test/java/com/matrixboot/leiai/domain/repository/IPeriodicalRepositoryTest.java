@@ -1,5 +1,6 @@
 package com.matrixboot.leiai.domain.repository;
 
+import com.matrixboot.leiai.application.PeriodicalDTO;
 import com.matrixboot.leiai.domain.entity.PeriodicalEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,12 +24,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class IPeriodicalRepositoryTest {
 
     @Resource
-    private IPeriodicalRepository repository;
+    private IPeriodicalRemoteRepository repository;
 
 
     @Test
     void findAllByName() {
-        List<PeriodicalEntity> list = repository.findAllByName("新浪");
+        List<PeriodicalDTO> list = repository.findAllByName("新浪");
         list.forEach(System.out::println);
     }
 }

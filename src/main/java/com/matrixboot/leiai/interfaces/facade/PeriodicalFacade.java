@@ -25,9 +25,8 @@ public class PeriodicalFacade {
     private final PeriodicalService service;
 
     @GetMapping("periodical/{name}")
-    public ResultVO<List<PeriodicalEntity>> findAll(@PathVariable String name) {
-        List<PeriodicalVO> list = service.findAllByName(name);
-        return ResultVO.success();
+    public ResultVO<List<PeriodicalVO>> findAll(@PathVariable String name) {
+        return ResultVO.success(service.findAllByName(name));
     }
 
 }
