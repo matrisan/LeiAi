@@ -5,7 +5,6 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 /**
- * TODO
  * <p>
  * create in 2021/10/24 4:55 下午
  *
@@ -24,7 +23,7 @@ public final class PeriodicalFactory {
                 .recId(periodical.getRecId())
                 .orgName(periodical.getOrgName())
                 .chargeUnit(periodical.getChargeUnit())
-                .language(periodical.getLanguate())
+                .language(periodical.getLanguage())
                 .orgCn(periodical.getOrgCn())
                 .linkNum(periodical.getLinkNum())
                 .build();

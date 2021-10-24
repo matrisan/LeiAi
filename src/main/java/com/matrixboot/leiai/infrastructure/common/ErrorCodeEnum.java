@@ -1,7 +1,6 @@
 package com.matrixboot.leiai.infrastructure.common;
 
 import lombok.Getter;
-import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * <p>

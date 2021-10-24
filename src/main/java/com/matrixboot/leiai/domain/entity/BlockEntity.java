@@ -18,9 +18,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
 import javax.persistence.UniqueConstraint;
 import java.io.Serializable;
 

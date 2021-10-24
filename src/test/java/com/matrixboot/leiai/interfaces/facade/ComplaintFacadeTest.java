@@ -60,7 +60,7 @@ class ComplaintFacadeTest {
         Assertions.assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
         ResultVO<String> body = response.getBody();
         Assertions.assertNotNull(body);
-        Assertions.assertEquals("创建成功", body.getData());
+        Assertions.assertEquals("创建成功", body.getResult());
     }
 
 

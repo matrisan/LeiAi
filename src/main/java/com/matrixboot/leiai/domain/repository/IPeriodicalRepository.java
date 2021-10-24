@@ -1,11 +1,7 @@
 package com.matrixboot.leiai.domain.repository;
 
-import com.matrixboot.leiai.application.PeriodicalDTO;
 import com.matrixboot.leiai.domain.entity.PeriodicalEntity;
-import com.matrixboot.leiai.domain.entity.StatisticEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 /**
  * <p>

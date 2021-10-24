@@ -6,14 +6,11 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.AbstractPointcutAdvisor;
 import org.springframework.aop.support.StaticMethodMatcherPointcut;
-import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.core.log.LogMessage;
 import org.springframework.util.ClassUtils;
-import org.springframework.util.CollectionUtils;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;

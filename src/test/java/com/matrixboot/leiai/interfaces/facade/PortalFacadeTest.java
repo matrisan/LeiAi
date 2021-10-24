@@ -36,6 +36,6 @@ class PortalFacadeTest {
         ResultVO<Long> body = response.getBody();
         Assertions.assertNotNull(body);
         Assertions.assertEquals(ErrorCodeEnum.ALL_OK.getCode(), body.getCode());
-        Assertions.assertEquals(0L, body.getData());
+        Assertions.assertEquals(0L, body.getResult());
     }
 }

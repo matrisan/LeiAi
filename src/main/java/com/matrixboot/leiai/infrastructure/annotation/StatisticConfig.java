@@ -1,7 +1,5 @@
 package com.matrixboot.leiai.infrastructure.annotation;
 
-import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.aop.support.JdkRegexpMethodPointcut;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

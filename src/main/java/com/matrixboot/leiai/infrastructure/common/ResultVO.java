@@ -25,7 +25,7 @@ public class ResultVO<T> {
 
     private String code;
 
-    private T data;
+    private T result;
 
     private String message;
 
@@ -34,7 +34,7 @@ public class ResultVO<T> {
     }
 
     public static <T> ResultVO<T> success(T data) {
-        return ResultVO.<T>builder().code(ErrorCodeEnum.ALL_OK.getCode()).data(data).build();
+        return ResultVO.<T>builder().code(ErrorCodeEnum.ALL_OK.getCode()).result(data).build();
     }
 
     public static <T> ResultVO<T> success(ErrorCodeEnum errorCodeEnum) {
