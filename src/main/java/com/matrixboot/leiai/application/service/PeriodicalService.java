@@ -7,6 +7,7 @@ import com.matrixboot.leiai.domain.repository.IPeriodicalRemoteRepository;
 import com.matrixboot.leiai.domain.repository.IPeriodicalRepository;
 import com.matrixboot.leiai.infrastructure.annotation.Statistic;
 import lombok.AllArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,14 +35,15 @@ public class PeriodicalService {
         return list.stream().map(PeriodicalDTO::getRecId).map(this::map).collect(Collectors.toList());
     }
 
-    private void peek(PeriodicalDTO periodical) {
+    private void peek(@NotNull PeriodicalDTO periodical) {
         if (!periodicalRepository.existsByRecId(periodical.getRecId())) {
             periodicalRepository.save(PeriodicalFactory.from(periodical));
+        } else {
+            periodicalRepository.updateGlimpseByRecId(periodical.getRecId());
         }
     }
 
     private IPeriodicalVO map(String id) {
         return periodicalRepository.findByRecId(id, IPeriodicalVO.class);
     }
-
 }

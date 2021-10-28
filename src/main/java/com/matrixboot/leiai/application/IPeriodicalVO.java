@@ -9,6 +9,8 @@ package com.matrixboot.leiai.application;
  */
 public interface IPeriodicalVO {
 
+    String getRecId();
+
     String getOrgType();
 
     String getHostUnit();
@@ -16,8 +18,6 @@ public interface IPeriodicalVO {
     String getAddress();
 
     String getStation();
-
-    String getRecId();
 
     String getOrgName();
 

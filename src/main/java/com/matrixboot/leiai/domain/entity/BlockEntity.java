@@ -71,7 +71,7 @@ public class BlockEntity extends BaseEntity implements Serializable {
     /**
      * 有多少人看过
      */
-    @Column(columnDefinition = "BIGINT COMMENT '有多少人看过'")
+    @Column(columnDefinition = "BIGINT DEFAULT 1 COMMENT '有多少人看过'")
     private Long glimpse;
 
     /**

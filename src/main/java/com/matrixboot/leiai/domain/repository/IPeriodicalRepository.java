@@ -2,6 +2,9 @@ package com.matrixboot.leiai.domain.repository;
 
 import com.matrixboot.leiai.domain.entity.PeriodicalEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -16,5 +19,10 @@ public interface IPeriodicalRepository extends JpaRepository<PeriodicalEntity, L
 
 
     <T> T findByRecId(String recId, Class<T> clz);
+
+    @Modifying
+    @Transactional(rollbackFor = Exception.class)
+    @Query("UPDATE PeriodicalEntity AS periodical SET periodical.glimpse = (periodical.glimpse + 1) WHERE periodical.recId = ?1")
+    void updateGlimpseByRecId(String recId);
 
 }

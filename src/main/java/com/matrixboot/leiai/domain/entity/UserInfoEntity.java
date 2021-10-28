@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import java.io.Serializable;
 
 /**
@@ -35,7 +36,7 @@ import java.io.Serializable;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-@Table(name = "user_info_entity")
+@Table(name = "user_info_entity", uniqueConstraints = {@UniqueConstraint(name = "uk_openid", columnNames = {"open_id"})})
 public class UserInfoEntity extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 8033727963135202120L;
@@ -45,5 +46,28 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     @Column(nullable = false, columnDefinition = "BIGINT COMMENT 'id'")
     private Long id;
 
+    @Column(name = "open_id",columnDefinition = "VARCHAR(100) COMMENT 'address'")
+    private String openId;
+
+    @Column(name = "nick_name",columnDefinition = "VARCHAR(50) COMMENT 'nickName'")
+    private String nickName;
+
+    @Column(columnDefinition = "TINYINT COMMENT 'address'")
+    private Integer gender;
+
+    @Column(columnDefinition = "VARCHAR(20) COMMENT 'city'")
+    private String city;
+
+    @Column(columnDefinition = "VARCHAR(20) COMMENT 'country'")
+    private String country;
+
+    @Column(columnDefinition = "VARCHAR(10) COMMENT 'language'")
+    private String language;
+
+    @Column(name = "session_key",columnDefinition = "VARCHAR(100) COMMENT 'address'")
+    private String sessionKey;
+
+    @Column(name = "avatar_url",columnDefinition = "VARCHAR(200) COMMENT 'address'")
+    private String avatarUrl;
 
 }

@@ -23,7 +23,7 @@ public class PeriodicalFacade {
 
     private final PeriodicalService service;
 
-    //    @GetMapping("/periodical/{name}")
+//    @GetMapping("/periodical/{name}")
     public ResultVO<List<IPeriodicalVO>> findAll(@PathVariable String name) {
         return ResultVO.success(service.findAllByName(name));
     }

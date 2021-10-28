@@ -13,4 +13,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IUserInfoRepository extends JpaRepository<UserInfoEntity, Long> {
 
+    boolean existsByOpenId(String openId);
+
 }

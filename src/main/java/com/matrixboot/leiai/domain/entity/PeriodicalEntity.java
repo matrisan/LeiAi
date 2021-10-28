@@ -73,7 +73,7 @@ public class PeriodicalEntity {
     @Column(name = "link_num", columnDefinition = "VARCHAR(50) COMMENT '投诉的描述'")
     private String linkNum;
 
-    @Column(columnDefinition = "BIGINT  DEFAULT 0  COMMENT '有多少人看过'")
+    @Column(columnDefinition = "BIGINT  DEFAULT 1  COMMENT '有多少人看过'")
     private Long glimpse;
 
 }

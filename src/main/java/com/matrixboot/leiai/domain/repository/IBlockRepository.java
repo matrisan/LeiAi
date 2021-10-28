@@ -30,7 +30,7 @@ public interface IBlockRepository extends JpaRepository<BlockEntity, Long> {
      * @param id id
      */
     @Modifying
-    @Query("UPDATE BlockEntity block SET block.agreement = block.agreement + 1")
+    @Query("UPDATE BlockEntity AS block SET block.agreement = block.agreement + 1 WHERE block.id = ?1")
     void updateAgreement(long id);
 
 }
